@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="KZ行程">
+<meta name="theme-color" content="#0a0e14">
+<title>🇰🇿 哈薩克 9天8夜</title>
+<style>
+:root{--bg:#0a0e14;--card:#111720;--card2:#151a22;--border:#1a2030;--txt:#d4d4d4;--dim:#6b7b8d;--acc:#53bdeb;--warn:#e74c3c;--gold:#f39c12;--ok:#2ecc71}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--txt);font-family:-apple-system,'PingFang TC','Noto Sans TC','Helvetica Neue',sans-serif;overscroll-behavior:none;-webkit-text-size-adjust:100%}
+::-webkit-scrollbar{display:none}
+button{font-family:inherit;cursor:pointer;border:none;outline:none;-webkit-appearance:none}
+.wrap{max-width:430px;margin:0 auto;min-height:100vh;position:relative;overflow:hidden}
+.hdr{padding:max(12px,env(safe-area-inset-top,12px)) 16px 0;display:flex;justify-content:space-between;align-items:center}
+.tabs{display:flex;gap:3px;background:var(--card2);border-radius:10px;padding:3px}
+.tab{padding:5px 12px;border-radius:8px;font-size:11px;font-weight:600;background:transparent;color:var(--dim);transition:all .2s}
+.tab.on{background:var(--acc);color:var(--bg)}
+.days{display:flex;gap:5px;padding:10px 16px;overflow-x:auto}
+.day-btn{flex-shrink:0;width:46px;padding:5px 0;border-radius:11px;text-align:center;background:var(--card2);color:var(--dim);border:2px solid transparent;transition:all .2s}
+.day-btn:active{transform:scale(.93)}
+.day-btn.on{color:#fff}
+.hero{margin:0 16px 10px;border-radius:16px;overflow:hidden;position:relative;height:120px}
+.hero-bg{position:absolute;inset:0;opacity:.9}
+.hero-c{position:relative;z-index:1;padding:14px 16px;height:100%;display:flex;flex-direction:column;justify-content:space-between}
+.filters{display:flex;gap:5px;padding:0 16px 6px;overflow-x:auto;flex-wrap:wrap}
+.filt{padding:3px 10px;border-radius:16px;font-size:10px;font-weight:600;background:var(--card2);color:#555;transition:all .15s}
+.filt:active{transform:scale(.95)}
+.timeline{padding:4px 16px 0;position:relative}
+.tl-line{position:absolute;left:26px;top:0;bottom:0;width:2px;border-radius:1px}
+.spot{position:relative;margin-bottom:8px;padding-left:20px;animation:fadeUp .35s ease both}
+.dot{position:absolute;left:5px;top:14px;width:10px;height:10px;border-radius:50%;border:2px solid var(--bg);transition:all .2s}
+.dot.on{animation:pulse 1.5s ease infinite}
+.scard{border-radius:13px;padding:10px 12px;border:1px solid var(--border);transition:all .2s}
+.scard.on{border-color:rgba(255,255,255,.15)}
+.mono{font-family:'SF Mono','Menlo','Courier New',monospace}
+.detail{margin-top:8px;animation:fadeUp .2s ease}
+.detail-inner{font-size:12.5px;color:#8a95a0;line-height:1.7;padding:7px 9px;background:#0c1016;border-radius:9px;border-left:3px solid rgba(255,255,255,.1)}
+.tips{margin:6px 16px 0;background:var(--card);border-radius:13px;padding:10px 12px;border:1px solid var(--border)}
+.budget-grid{margin:10px 16px 0;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.bg-cell{background:var(--card);border-radius:9px;padding:6px 2px;text-align:center;border:1px solid var(--border)}
+.swipe-hint{text-align:center;padding:14px 0;padding-bottom:max(16px,env(safe-area-inset-bottom,16px));font-size:10px;color:#1a2030}
+.ring-wrap{text-align:center;margin-bottom:16px}
+.ring-box{position:relative;width:130px;height:130px;margin:0 auto}
+.ring-center{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.bday{display:flex;align-items:center;gap:7px;margin-bottom:5px;background:var(--card);border-radius:9px;padding:7px 9px;border:1px solid var(--border);animation:fadeUp .35s ease both}
+.bbar{height:4px;border-radius:2px;background:var(--border);overflow:hidden}
+.bfill{height:100%;border-radius:2px;transition:width .6s}
+.visa-box{background:var(--card2);border-radius:12px;padding:12px;margin:12px 0;border:1px solid rgba(243,156,18,.2)}
+.sum-box{background:linear-gradient(135deg,#0d2137,#0a1628);border-radius:14px;padding:14px;border:1px solid rgba(83,189,235,.13)}
+.warn-box{font-size:10px;color:var(--warn);margin-top:8px;line-height:1.6;padding:6px 8px;background:rgba(231,76,60,.07);border-radius:7px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+// ─── DATA ───
+const D=[
+{n:1,dt:"4/19",wd:"日",th:"抵達阿拉木圖",ct:"Almaty",wx:"5–15°C",ic:"✈️",cl:"#1a5276",gr:"linear-gradient(135deg,#1a5276,#2980b9)",
+sp:[{t:"20:40",n:"抵達阿拉木圖機場 T2",i:"✈️",d:"入境、領行李、換少量KZT（1 USD≈480-500 KZT）。提前下載 Yandex Go App。",c:0,g:"arrival"},
+{t:"21:15",n:"Yandex Go → 市中心住宿",i:"🚕",d:"15-19km 約20-35分 Economy約KZT 5000-7500。絕不搭機場攬客黑車！備案：Blue Sky Taxi 固定KZT 9,000。",c:400,g:"transport"},
+{t:"21:30",n:"入住 + 超市採買",i:"🏨",d:"Magnum超市買水和早餐。早點休息！",c:200,g:"hotel"}],
+bg:{tk:0,tr:400,fd:200,ht:1000,ot:0},tp:["機場有免費WiFi可叫Yandex","下載Maps.me離線地圖","換匯市區比機場划算"]},
+
+{n:2,dt:"4/20",wd:"一",th:"高山纜車＋科克托別夜景",ct:"Almaty",wx:"3–13°C ⛰山上更冷",ic:"🚡",cl:"#2980b9",gr:"linear-gradient(135deg,#2980b9,#3498db)",
+sp:[{t:"08:30",n:"出發往梅德奧",i:"🚌",d:"公車#12或Yandex 約25-35分。",c:150,g:"transport"},
+{t:"09:15",n:"梅德奧滑冰場（外觀）",i:"📸",d:"世界最高露天滑冰場 海拔1691m。整修至2027。拍拱門+山谷。",c:0,g:"sight"},
+{t:"10:00",n:"希姆布拉克纜車上山🚡",i:"⛷️",d:"3段纜車到海拔3163m！俯瞰天山雪峰。來回KZT 5000-8000/人。可短程健行。",c:1060,g:"highlight"},
+{t:"12:30",n:"午餐：AUYL/Rifugio",i:"🍽️",d:"AUYL⭐4.7新遊牧料理(碳烤骨髓/馬臉頰肉)2024世界50大。Rifugio露台景觀絕美。",c:800,g:"food"},
+{t:"15:00",n:"第一總統公園",i:"🌳",d:"日本庭園＋山景觀景台。免費。",c:0,g:"sight"},
+{t:"17:30",n:"晚餐：Navat餐廳",i:"🍽️",d:"⭐4.5中亞傳統料理。Kuurdak/Beshbarmak/Plov。離科克托別纜車站步行5分！",c:530,g:"food"},
+{t:"19:30",n:"科克托別山纜車夜景🌃",i:"🌃",d:"KZT 4000-8000/人。俯瞰城市夜景+披頭四雕像。營運到22:45。",c:530,g:"highlight"}],
+bg:{tk:1590,tr:465,fd:1460,ht:1000,ot:0},tp:["山頂風大很冷帶圍巾手套","備選住宿：Tenir Eco Hotel海拔3200m","AUYL需訂位"]},
+
+{n:3,dt:"4/21",wd:"二",th:"市區文化巡禮＋歌劇院",ct:"Almaty",wx:"4–14°C",ic:"🏛️",cl:"#8e44ad",gr:"linear-gradient(135deg,#8e44ad,#9b59b6)",
+sp:[{t:"08:30",n:"Abay歌劇院（外觀）",i:"🎭",d:"蘇聯古典建築 噴泉廣場。潘菲洛夫公園南側300m。",c:0,g:"sight"},
+{t:"09:00",n:"潘菲洛夫公園＋升天主教座堂",i:"⛪",d:"教堂全木造無釘子！07:00-18:00。內部禁拍。女性建議帶頭巾。",c:0,g:"highlight"},
+{t:"10:00",n:"民族樂器博物館🎵",i:"🎵",d:"KZT 1500/人。冬不拉/闊布孜+世界樂器。有影片。週一休→週二OK！",c:200,g:"sight"},
+{t:"11:00",n:"綠色巴扎Green Bazaar",i:"🛒",d:"1875年至今！堅果乾果蜂蜜馬肉腸。攤販免費試吃。帶現金。週一休→週二OK。",c:0,g:"highlight"},
+{t:"12:00",n:"午餐：巴扎美食區",i:"🍽️",d:"Lagman拉麵/Samsa烤包子/Shashlik。最在地吃法！",c:330,g:"food"},
+{t:"14:00",n:"共和廣場",i:"🏛️",d:"獨立紀念碑＋金色戰士。免費。（中央國家博物館週二休→改Day5）",c:0,g:"sight"},
+{t:"16:00",n:"阿爾巴特街散步",i:"🚶",d:"最熱鬧徒步街。街頭表演、咖啡、紀念品。",c:0,g:"sight"},
+{t:"17:00",n:"晚餐：Sandyq",i:"🍽️",d:"⭐4.6傳統料理兼博物館。馬奶燉羊排/骨髓/Baursak。等餐有導覽！",c:530,g:"food"},
+{t:"18:30",n:"Abay歌劇院看表演🎭",i:"🎭",d:"KZT 2000-8000/人。歌劇或芭蕾。穿著稍正式。gatob.kz查節目。",c:530,g:"highlight"}],
+bg:{tk:860,tr:200,fd:1000,ht:1000,ot:530},tp:["巴扎帶現金小攤不收卡","歌劇門票便宜品質高","Sandyq：Abylai Khan Ave 55"]},
+
+{n:4,dt:"4/22",wd:"三",th:"自駕/Tour：查林峽谷",ct:"→Saty村",wx:"峽谷10–18°C風大",ic:"🏜️",cl:"#d35400",gr:"linear-gradient(135deg,#d35400,#e67e22)",
+sp:[{t:"07:00",n:"出發→查林峽谷",i:"🚗",d:"220km 3.5hr柏油路。Baiseit村買水果。帶護照正本（邊境區）！",c:0,g:"transport"},
+{t:"11:00",n:"城堡谷Valley of Castles🏜️",i:"🏜️",d:"1200萬年紅色岩壁！步行到河邊來回2km。KZT 1000/人。",c:130,g:"highlight"},
+{t:"13:00",n:"黑峽谷Black Canyon",i:"🕳️",d:"最深峽谷。黑色岩壁+巨大洞穴。30-45分鐘。",c:0,g:"sight"},
+{t:"13:30",n:"午餐",i:"🍽️",d:"峽谷遊客中心餐廳或自備野餐。",c:265,g:"food"},
+{t:"14:15",n:"月亮峽谷Moon Canyon🌙",i:"🌙",d:"黃色沉積岩月球地表！光線變色。秘境。",c:0,g:"sight"},
+{t:"15:00",n:"開車→Saty村",i:"🚗",d:"110km 2-2.5hr。荒漠→草原→山谷。",c:0,g:"transport"},
+{t:"17:30",n:"入住Saty民宿",i:"🏡",d:"當地人家。含晚餐+早餐。可能有蒙古包。",c:665,g:"hotel"},
+{t:"21:00",n:"無光害星空⭐",i:"⭐",d:"銀河肉眼可見！帶厚外套。",c:0,g:"highlight"}],
+bg:{tk:130,tr:0,fd:265,ht:665,ot:0},tp:["自駕需國際駕照+SUV","備選：2日Tour USD200/車","加滿油郊區加油站少","Maps.me離線地圖必備"]},
+
+{n:5,dt:"4/23",wd:"四",th:"科爾賽湖＋凱恩迪湖",ct:"→Almaty",wx:"山區0–15°C",ic:"💎",cl:"#16a085",gr:"linear-gradient(135deg,#16a085,#1abc9c)",
+sp:[{t:"08:30",n:"科爾賽湖Kolsai💎",i:"💎",d:"北天山珍珠！海拔1818m翡翠湖。環湖1hr。KZT 1000/人。可騎馬/划船。",c:130,g:"highlight"},
+{t:"10:30",n:"前往凱恩迪湖",i:"🚗",d:"15km 30-45min ⚠️極顛簸需SUV！轎車→民宿安排4WD接駁KZT20000。",c:0,g:"transport"},
+{t:"11:15",n:"凱恩迪湖沉沒森林🌲",i:"🌲",d:"1911地震堰塞湖。百年雲杉水中挺立！哈薩克最超現實景觀。步行1.5km。",c:0,g:"highlight"},
+{t:"13:30",n:"午餐：Saty村",i:"🍽️",d:"Plov/Manti蒸餃/Shashlik。",c:265,g:"food"},
+{t:"14:30",n:"返回阿拉木圖",i:"🚗",d:"300km 4.5-5.5hr。預計天黑前到。",c:0,g:"transport"},
+{t:"20:00",n:"回到阿拉木圖",i:"🏨",d:"簡單晚餐。可去中央國家博物館（開到18:00週四OK）。",c:265,g:"food"}],
+bg:{tk:200,tr:1165,fd:660,ht:665,ot:0},tp:["Day4+5自駕：租車TWD4500-6400+油費1000-1330","Day4+5 Tour：TWD6400全含","凱恩迪湖部分租車禁入罰USD200"]},
+
+{n:6,dt:"4/24",wd:"五",th:"瀑布健行＋SPA＋夜車",ct:"Almaty→🚂",wx:"5–15°C",ic:"🥾",cl:"#27ae60",gr:"linear-gradient(135deg,#27ae60,#2ecc71)",
+sp:[{t:"08:15",n:"布塔科夫卡瀑布健行🥾",i:"🥾",d:"來回8-10km 3-4hr中等。4月水量豐沛最壯觀！KZT800/人。穿防水鞋。",c:105,g:"highlight"},
+{t:"12:45",n:"午餐",i:"🍽️",d:"健行後大碗Lagman暖身！",c:400,g:"food"},
+{t:"13:30",n:"Arasan SPA♨️",i:"♨️",d:"芬蘭桑拿+俄羅斯蒸氣浴+泳池。KZT3000-5000/人。帶毛巾拖鞋泳帽。",c:530,g:"highlight"},
+{t:"15:30",n:"綠色巴扎買伴手禮🛍️",i:"🛍️",d:"Rakhat巧克力、堅果乾果、蜂蜜、茶葉。45分鐘。",c:0,g:"sight"},
+{t:"17:30",n:"晚餐+買車上零食",i:"🍽️",d:"超市買泡麵。火車有熱水。",c:465,g:"food"},
+{t:"19:20",n:"夜車→阿斯塔納🚂",i:"🚂",d:"16-17hr Kupe臥鋪KZT7000-10000/人。省一晚！tickets.kz購票。",c:1060,g:"highlight"}],
+bg:{tk:635,tr:400,fd:1000,ht:0,ot:530},tp:["今晚火車上睡省一晚！","火車有熱水帶杯麵","貴重物品放身邊"]},
+
+{n:7,dt:"4/25",wd:"六",th:"抵達阿斯塔納＋半日觀光",ct:"Astana",wx:"0–12°C風大！",ic:"🏙️",cl:"#2c3e50",gr:"linear-gradient(135deg,#2c3e50,#34495e)",
+sp:[{t:"11:00",n:"抵達Astana-1火車站",i:"🚂",d:"Yandex去住宿。推薦Nomad Home⭐4.6。",c:0,g:"arrival"},
+{t:"13:00",n:"午餐：Saksaul",i:"🍽️",d:"⭐4.7 Baurdaq/Beshbarmak/牛肋排。可穿傳統服飾拍照！",c:530,g:"food"},
+{t:"14:30",n:"Bayterek巴伊捷列克塔🗼",i:"🗼",d:"97m地標！KZT2500/人。360°全城。排隊15-30min。",c:330,g:"highlight"},
+{t:"15:30",n:"努若爾大道散步",i:"🚶",d:"中軸線。未來感建築群。科幻場景。",c:0,g:"sight"},
+{t:"16:00",n:"哈茲拉特蘇丹清真寺🕌",i:"🕌",d:"中亞第二大！白大理石+金頂。免費。女性可借長袍。",c:0,g:"highlight"},
+{t:"18:00",n:"晚餐+河濱散步",i:"🍽️",d:"伊希姆河畔夜景。浪漫但冷！",c:400,g:"food"}],
+bg:{tk:330,tr:200,fd:1000,ht:1000,ot:0},tp:["阿斯塔納比阿拉木圖冷很多","Saksaul離Bayterek步行5分鐘"]},
+
+{n:8,dt:"4/26",wd:"日",th:"阿斯塔納全日觀光",ct:"Astana",wx:"1–13°C",ic:"🏛️",cl:"#c0392b",gr:"linear-gradient(135deg,#c0392b,#e74c3c)",
+sp:[{t:"09:30",n:"哈薩克國家博物館🏛️",i:"🏛️",d:"74000m²！金鳥雕塑+金廳。KZT2000/人。週一休→週日OK。2-2.5hr。",c:265,g:"highlight"},
+{t:"12:30",n:"Khan Shatyr汗帳篷⛺",i:"⛺",d:"世界最大帳篷建築150m！購物+娛樂+人造沙灘。免費。",c:0,g:"sight"},
+{t:"13:00",n:"午餐：Khan Shatyr",i:"🍽️",d:"美食區選擇超多。",c:400,g:"food"},
+{t:"14:30",n:"阿斯塔納歌劇院（外觀）",i:"🎭",d:"新古典仿19世紀義大利劇場。",c:0,g:"sight"},
+{t:"15:00",n:"努若爾大道漫步",i:"🚶",d:"科幻建築群 1-1.5hr。",c:0,g:"sight"},
+{t:"18:30",n:"晚餐：Qazaq Gourmet",i:"🍽️",d:"⭐4.7現代高端料理。駱駝+馬+牛肉拼盤！備選Saksaul省$500。",c:1000,g:"food"}],
+bg:{tk:265,tr:200,fd:1660,ht:1000,ot:0},tp:["Qazaq Gourmet需訂位","備選Saksaul省TWD500"]},
+
+{n:9,dt:"4/27",wd:"一",th:"飛往塔什干",ct:"→Tashkent",wx:"1–12°C",ic:"✈️",cl:"#7f8c8d",gr:"linear-gradient(135deg,#7f8c8d,#95a5a6)",
+sp:[{t:"08:00",n:"早餐退房",i:"🏨",d:"確認行李證件。",c:0,g:"hotel"},
+{t:"09:00",n:"自由活動",i:"🚶",d:"補逛或買伴手禮。",c:0,g:"sight"},
+{t:"11:00",n:"阿斯塔納機場NQZ",i:"✈️",d:"Yandex KZT2000-3000。起飛前2.5-3hr到。",c:200,g:"transport"},
+{t:"~13:00",n:"起飛→塔什干✈️",i:"✈️",d:"FlyArystan/Uzbekistan Airways約2hr。USD70-120/人。需另買！週一有航班。",c:6100,g:"highlight"},
+{t:"~15:00",n:"抵達塔什干🇺🇿",i:"🇺🇿",d:"同時區。開始烏茲別克段4/27-5/9！",c:0,g:"arrival"}],
+bg:{tk:0,tr:200,fd:200,ht:0,ot:6100},tp:["週一FlyArystan有飛","機票需另外購買"]}
+];
+
+const VL=5760,VV=3840,FL=29710,TOT=80000;
+const tC={highlight:"#f39c12",food:"#e74c3c",transport:"#3498db",sight:"#9b59b6",hotel:"#1abc9c",arrival:"#2ecc71"};
+const tL={highlight:"精華",food:"餐飲",transport:"交通",sight:"景點",hotel:"住宿",arrival:"抵達"};
+const dT=b=>b.tk+b.tr+b.fd+b.ht+b.ot;
+const fm=n=>n>=1000?(n/1000).toFixed(n%1000===0?0:1)+"K":""+n;
+const tripT=D.reduce((s,d)=>s+dT(d.bg),0);
+const allT=tripT+VL+VV;
+const remain=TOT-FL-allT;
+
+let curDay=0,curExp=null,curTab="trip",curFlt="all";
+let tx=0,ty=0;
+
+function render(){
+  const d=D[curDay];
+  const fs=curFlt==="all"?d.sp:d.sp.filter(s=>s.g===curFlt);
+  const app=document.getElementById("app");
+
+  let h=`
+  <div class="hdr">
+    <div>
+      <div style="font-size:10px;color:var(--acc);letter-spacing:3px;font-weight:600" class="mono">KAZAKHSTAN 2026</div>
+      <div style="font-size:17px;font-weight:700;margin-top:1px">🇰🇿 哈薩克 9天8夜</div>
+    </div>
+    <div class="tabs">
+      <button class="tab ${curTab==="trip"?"on":""}" onclick="setTab('trip')">📅行程</button>
+      <button class="tab ${curTab==="budget"?"on":""}" onclick="setTab('budget')">💰預算</button>
+    </div>
+  </div>`;
+
+  if(curTab==="trip"){
+    // Day pills
+    h+=`<div class="days">`;
+    D.forEach((dd,i)=>{
+      h+=`<button class="day-btn ${curDay===i?"on":""}" style="${curDay===i?`border-color:${dd.cl};background:${dd.cl}22`:""}" onclick="goDay(${i})">
+        <div style="font-size:15px">${dd.ic}</div>
+        <div class="mono" style="font-size:10px;font-weight:700">${dd.n}</div>
+        <div style="font-size:7px;opacity:.6">${dd.dt}</div>
+      </button>`;
+    });
+    h+=`</div>`;
+
+    // Hero
+    h+=`<div class="hero"><div class="hero-bg" style="background:${d.gr}"></div>
+    <div class="hero-c">
+      <div><div class="mono" style="font-size:10px;color:rgba(255,255,255,.55);letter-spacing:2px">DAY ${d.n} — ${d.dt} (${d.wd})</div>
+      <div style="font-size:19px;font-weight:900;color:#fff;margin-top:3px">${d.ic} ${d.th}</div></div>
+      <div style="display:flex;justify-content:space-between">
+        <span style="font-size:11px;color:rgba(255,255,255,.65)">📍 ${d.ct}</span>
+        <span style="font-size:11px;color:rgba(255,255,255,.65)">🌡️ ${d.wx}</span>
+      </div>
+    </div></div>`;
+
+    // Filters
+    const tags=[...new Set(d.sp.map(s=>s.g))];
+    h+=`<div class="filters">
+      <button class="filt" style="${curFlt==="all"?"background:#53bdeb20;color:#53bdeb":""}" onclick="setFlt('all')">全部</button>`;
+    tags.forEach(tag=>{
+      h+=`<button class="filt" style="${curFlt===tag?`background:${tC[tag]}20;color:${tC[tag]}`:""}" onclick="setFlt('${tag}')">${tL[tag]}</button>`;
+    });
+    h+=`</div>`;
+
+    // Timeline
+    h+=`<div class="timeline"><div class="tl-line" style="background:${d.cl}18"></div>`;
+    fs.forEach((s,i)=>{
+      const isO=curExp===i;
+      h+=`<div class="spot" style="animation-delay:${i*.04}s" onclick="togExp(${i})">
+        <div class="dot ${isO?"on":""}" style="background:${isO?d.cl:tC[s.g]||d.cl};${isO?`box-shadow:0 0 8px ${d.cl}66`:""}"></div>
+        <div class="scard ${isO?"on":""}" style="background:${isO?"#151e28":"var(--card)"}">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:center;gap:5px">
+                <span class="mono" style="font-size:10px;color:${d.cl};font-weight:600">${s.t}</span>
+                <span style="font-size:8px;color:${tC[s.g]};font-weight:600">${tL[s.g]}</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;margin-top:2px;color:#e0ddd8;line-height:1.3">${s.i} ${s.n}</div>
+            </div>
+            <div style="flex-shrink:0;margin-left:6px;text-align:right">
+              ${s.c>0?`<span class="mono" style="font-size:10px;color:var(--gold);font-weight:600">$${fm(s.c)}</span>`:""}
+              <div style="font-size:14px;color:#333;transition:transform .2s;transform:rotate(${isO?90:0}deg)">›</div>
+            </div>
+          </div>
+          ${isO?`<div class="detail"><div class="detail-inner" style="border-left-color:${d.cl}33">${s.d}</div></div>`:""}
+        </div>
+      </div>`;
+    });
+    h+=`</div>`;
+
+    // Tips
+    if(d.tp.length){
+      h+=`<div class="tips"><div style="font-size:11px;font-weight:700;margin-bottom:6px;color:var(--gold)">💡 小提醒</div>`;
+      d.tp.forEach(t=>{h+=`<div style="font-size:11px;color:var(--dim);margin-bottom:3px;padding-left:6px;line-height:1.5">• ${t}</div>`;});
+      h+=`</div>`;
+    }
+
+    // Budget grid
+    h+=`<div class="budget-grid">`;
+    [{l:"門票",v:d.bg.tk,e:"🎫"},{l:"交通",v:d.bg.tr,e:"🚗"},{l:"餐飲",v:d.bg.fd,e:"🍽️"},{l:"住宿",v:d.bg.ht,e:"🏨"},{l:"其他",v:d.bg.ot,e:"📦"}].forEach(it=>{
+      h+=`<div class="bg-cell"><div style="font-size:12px">${it.e}</div><div style="font-size:7px;color:#555;margin-top:1px">${it.l}</div>
+      <div class="mono" style="font-size:9px;font-weight:700;color:${it.v>0?"var(--txt)":"#1a2030"};margin-top:1px">${it.v>0?"$"+fm(it.v):"—"}</div></div>`;
+    });
+    h+=`</div><div class="swipe-hint">← 左右滑動切換天數 →</div>`;
+
+  } else {
+    // BUDGET
+    h+=`<div style="height:calc(100vh - 56px);overflow-y:auto;padding:12px 16px;-webkit-overflow-scrolling:touch">`;
+
+    // Ring
+    const pct1=(allT/TOT)*264,pct2=(FL/TOT)*264;
+    h+=`<div class="ring-wrap"><div class="ring-box">
+      <svg viewBox="0 0 100 100" style="transform:rotate(-90deg)">
+        <circle cx="50" cy="50" r="42" fill="none" stroke="var(--border)" stroke-width="8"/>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="var(--acc)" stroke-width="8" stroke-dasharray="${pct1} 264" stroke-linecap="round"/>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="var(--warn)" stroke-width="8" stroke-dasharray="${pct2} 264" stroke-dashoffset="${-pct1}" stroke-linecap="round"/>
+      </svg>
+      <div class="ring-center">
+        <div style="font-size:8px;color:#555">剩餘</div>
+        <div class="mono" style="font-size:16px;font-weight:700;color:${remain<10000?"var(--warn)":"var(--ok)"}">${remain.toLocaleString()}</div>
+        <div style="font-size:8px;color:#555">TWD</div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:14px;margin-top:8px;font-size:9px;color:#555">
+      <span>🔵哈薩克</span><span>🔴機票</span><span>⚫未用</span>
+    </div></div>`;
+
+    // Daily
+    h+=`<div style="font-size:12px;font-weight:700;margin-bottom:8px">📊 每日費用</div>`;
+    D.forEach((dd,i)=>{
+      const dt=dT(dd.bg);
+      h+=`<div class="bday" style="animation-delay:${i*.03}s">
+        <div style="width:32px;text-align:center;flex-shrink:0"><div style="font-size:13px">${dd.ic}</div><div style="font-size:7px;color:#555">D${dd.n}</div></div>
+        <div style="flex:1"><div style="font-size:10px;font-weight:500;color:#7a8694;margin-bottom:2px">${dd.th}</div>
+        <div class="bbar"><div class="bfill" style="background:${dd.gr};width:${Math.min((dt/8000)*100,100)}%"></div></div></div>
+        <div class="mono" style="font-size:11px;font-weight:700;color:var(--acc);flex-shrink:0;min-width:46px;text-align:right">${dt.toLocaleString()}</div>
+      </div>`;
+    });
+
+    // Visa
+    h+=`<div class="visa-box">
+      <div style="font-size:12px;font-weight:700;color:var(--gold);margin-bottom:6px">🛂 簽證費用</div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px"><span style="color:var(--dim)">邀請函LOI（已付）</span><span class="mono">${VL.toLocaleString()}</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--dim)">eVisa/落地簽（預估）</span><span class="mono">${VV.toLocaleString()}</span></div>
+    </div>`;
+
+    // Summary
+    h+=`<div class="sum-box">
+      <div style="font-size:11px;color:#555;margin-bottom:8px">💰 全程預算 (TWD)</div>`;
+    [{l:"總預算",v:TOT,c:"var(--txt)",s:"+"},{l:"機票",v:FL,c:"var(--warn)",s:"−"},{l:"哈薩克含簽證",v:allT,c:"var(--warn)",s:"−"}].forEach(r=>{
+      h+=`<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px">
+        <span style="color:var(--dim)">${r.l}</span>
+        <span class="mono" style="font-weight:600;color:${r.c}">${r.s}${r.v.toLocaleString()}</span></div>`;
+    });
+    h+=`<div style="border-top:1px solid #53bdeb22;margin-top:8px;padding-top:8px;display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:12px;font-weight:700">剩餘（烏茲別克12天）</span>
+      <span class="mono" style="font-size:16px;font-weight:700;color:${remain<10000?"var(--warn)":"var(--ok)"}">${remain.toLocaleString()}</span>
+    </div>`;
+    if(remain<10000){
+      h+=`<div class="warn-box">⚠️ 烏茲別克段預算緊。建議：Tour省TWD2-3K、住宿TWD600-700/晚、取消高價晚餐省TWD500+。</div>`;
+    }
+    h+=`</div><div style="height:max(30px,env(safe-area-inset-bottom,30px))"></div></div>`;
+  }
+
+  app.innerHTML=h;
+}
+
+// ─── EVENT HANDLERS ───
+window.goDay=function(i){curDay=i;curExp=null;curFlt="all";render()};
+window.setTab=function(t){curTab=t;render()};
+window.setFlt=function(f){curFlt=curFlt===f&&f!=="all"?"all":f;render()};
+window.togExp=function(i){curExp=curExp===i?null:i;render()};
+
+// Swipe
+document.addEventListener("touchstart",e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+document.addEventListener("touchend",e=>{
+  if(curTab!=="trip")return;
+  const dx=e.changedTouches[0].clientX-tx;
+  const dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){
+    if(dx<0&&curDay<8){curDay++;curExp=null;curFlt="all";render()}
+    if(dx>0&&curDay>0){curDay--;curExp=null;curFlt="all";render()}
+  }
+},{passive:true});
+
+render();
+</script>
+</body>
+</html>
