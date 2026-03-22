@@ -60,8 +60,130 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;-webkit-appea
 <body>
 <div class="wrap" id="app"></div>
 <script>
-const D=[{n:1,dt:"4/19",wd:"日",th:"抵達阿拉木圖",ct:"Almaty",wx:"5–15°C",ic:"✈️",cl:"#3573B5",gr:"linear-gradient(135deg,#3573B5,#5B9BD5)",sp:[{t:"20:40",n:"抵達阿拉木圖機場 T2",i:"✈️",d:"入境、領行李、換少量KZT（1 USD≈480-500 KZT）。提前下載 Yandex Go App。",c:0,g:"arrival"},{t:"21:15",n:"Yandex Go → 市中心住宿",i:"🚕",d:"15-19km 約20-35分 Economy約KZT 5,000-7,500。絕不搭機場攬客黑車！備案：Blue Sky Taxi 固定KZT 9,000。",c:400,g:"transport"},{t:"21:30",n:"入住＋超市採買",i:"🏨",d:"Magnum超市買水和早餐。早點休息！",c:200,g:"hotel"}],bg:{tk:0,tr:400,fd:200,ht:1000,ot:0},tp:["機場有免費WiFi可叫Yandex","下載Maps.me離線地圖","換匯市區比機場划算"]},{n:2,dt:"4/20",wd:"一",th:"高山纜車＋科克托別夜景",ct:"Almaty",wx:"3–13°C ⛰山上更冷",ic:"🚡",cl:"#3573B5",gr:"linear-gradient(135deg,#2E6DA4,#4A90D9)",sp:[{t:"08:30",n:"出發往梅德奧",i:"🚌",d:"公車#12或Yandex 約25-35分。",c:150,g:"transport"},{t:"09:15",n:"梅德奧滑冰場（外觀）",i:"📸",d:"世界最高露天滑冰場 海拔1,691m。整修至2027。拍拱門+山谷。",c:0,g:"sight"},{t:"10:00",n:"希姆布拉克纜車上山🚡",i:"⛷️",d:"3段纜車到海拔3,163m！俯瞰天山雪峰全景。來回KZT 5,000-8,000/人。可短程健行。",c:1060,g:"highlight"},{t:"12:30",n:"午餐：AUYL / Rifugio",i:"🍽️",d:"AUYL⭐4.7 新遊牧料理（碳烤骨髓/馬臉頰肉）2024世界50大新發現。Rifugio露台景觀絕美。",c:800,g:"food"},{t:"15:00",n:"第一總統公園",i:"🌳",d:"日本庭園＋山景觀景台。免費。",c:0,g:"sight"},{t:"17:30",n:"晚餐：Navat 餐廳",i:"🍽️",d:"⭐4.5 中亞傳統料理裝潢超美。Kuurdak/Beshbarmak/Plov。離科克托別纜車站步行5分！",c:530,g:"food"},{t:"19:30",n:"科克托別山纜車夜景🌃",i:"🌃",d:"KZT 4,000-8,000/人。俯瞰城市夜景＋披頭四雕像＋咖啡。營運到22:45。",c:530,g:"highlight"}],bg:{tk:1590,tr:465,fd:1460,ht:1000,ot:0},tp:["山頂風大很冷帶圍巾手套","備選住宿：Tenir Eco Hotel 海拔3200m","AUYL需訂位"]},{n:3,dt:"4/21",wd:"二",th:"市區文化巡禮＋歌劇院",ct:"Almaty",wx:"4–14°C",ic:"🏛️",cl:"#7E57A0",gr:"linear-gradient(135deg,#7E57A0,#9B72C0)",sp:[{t:"08:30",n:"Abay歌劇院（外觀）",i:"🎭",d:"蘇聯古典建築 噴泉廣場好拍。潘菲洛夫公園南側300m。",c:0,g:"sight"},{t:"09:00",n:"潘菲洛夫公園＋升天主教座堂",i:"⛪",d:"教堂全木造無釘子！07:00-18:00。內部禁拍。女性建議帶頭巾。",c:0,g:"highlight"},{t:"10:00",n:"中央國家博物館🏛️",i:"🏛️",d:"KZT 2,000/人。哈薩克最大博物館74,000m²。薩卡金人戰士真品＋遊牧民族文物＋絲路歷史。週一休→週二OK！",c:200,g:"sight"},{t:"11:00",n:"綠色巴扎 Green Bazaar",i:"🛒",d:"1875年至今！堅果乾果蜂蜜馬肉腸。攤販免費試吃。帶現金。週一休→週二OK。",c:0,g:"highlight"},{t:"12:00",n:"午餐：巴扎美食區",i:"🍽️",d:"Lagman拉麵/Samsa烤包子/Shashlik。最在地吃法！",c:330,g:"food"},{t:"14:00",n:"共和廣場",i:"🏛️",d:"獨立紀念碑＋金色戰士。免費。（中央國家博物館週二休→改Day5）",c:0,g:"sight"},{t:"16:00",n:"阿爾巴特街散步",i:"🚶",d:"最熱鬧徒步街。街頭表演、咖啡、紀念品。",c:0,g:"sight"},{t:"17:00",n:"晚餐：Sandyq",i:"🍽️",d:"⭐4.6 傳統料理兼博物館。馬奶燉羊排/骨髓/Baursak。等餐有導覽！",c:530,g:"food"},{t:"18:30",n:"Abay歌劇院看表演🎭",i:"🎭",d:"KZT 2,000-8,000/人。歌劇或芭蕾。穿著稍正式。gatob.kz查節目。",c:530,g:"highlight"}],bg:{tk:930,tr:200,fd:1000,ht:1000,ot:530},tp:["巴扎帶現金小攤不收卡","歌劇門票便宜品質高","Sandyq：Abylai Khan Ave 55"]},{n:4,dt:"4/22",wd:"三",th:"自駕/Tour：查林峽谷",ct:"→Saty村",wx:"峽谷10–18°C風大",ic:"🏜️",cl:"#C2612C",gr:"linear-gradient(135deg,#B85A28,#D4763F)",sp:[{t:"07:00",n:"出發→查林峽谷",i:"🚗",d:"220km 3.5hr柏油路。Baiseit村買水果。帶護照正本（邊境區）！",c:0,g:"transport"},{t:"11:00",n:"城堡谷 Valley of Castles🏜️",i:"🏜️",d:"1200萬年紅色岩壁！步行到河邊來回2km。KZT 1,000/人。",c:130,g:"highlight"},{t:"13:00",n:"黑峽谷 Black Canyon",i:"🕳️",d:"最深峽谷。黑色岩壁+巨大洞穴。30-45分鐘。",c:0,g:"sight"},{t:"13:30",n:"午餐",i:"🍽️",d:"峽谷遊客中心餐廳或自備野餐。",c:265,g:"food"},{t:"14:15",n:"月亮峽谷 Moon Canyon🌙",i:"🌙",d:"黃色沉積岩月球地表！光線變色。秘境。",c:0,g:"sight"},{t:"15:00",n:"開車→Saty村",i:"🚗",d:"110km 2-2.5hr。荒漠→草原→山谷。",c:0,g:"transport"},{t:"17:30",n:"入住Saty民宿",i:"🏡",d:"當地人家。含晚餐+早餐。可能有蒙古包。",c:665,g:"hotel"},{t:"21:00",n:"無光害星空⭐",i:"⭐",d:"銀河肉眼可見！帶厚外套。",c:0,g:"highlight"}],bg:{tk:130,tr:0,fd:265,ht:665,ot:0},tp:["自駕需國際駕照+SUV","備選：2日Tour USD200/車","加滿油郊區加油站少","Maps.me離線地圖必備"]},{n:5,dt:"4/23",wd:"四",th:"科爾賽湖＋凱恩迪湖",ct:"→Almaty",wx:"山區0–15°C",ic:"💎",cl:"#3A8B5C",gr:"linear-gradient(135deg,#2E7D4B,#4AA86E)",sp:[{t:"08:30",n:"科爾賽湖 Kolsai💎",i:"💎",d:"北天山珍珠！海拔1818m翡翠湖。環湖1hr。KZT 1,000/人。可騎馬/划船。",c:130,g:"highlight"},{t:"10:30",n:"前往凱恩迪湖",i:"🚗",d:"15km 30-45min ⚠️極顛簸需SUV！轎車→民宿安排4WD接駁KZT 20,000。",c:0,g:"transport"},{t:"11:15",n:"凱恩迪湖 沉沒森林🌲",i:"🌲",d:"1911地震堰塞湖。百年雲杉水中挺立！哈薩克最超現實景觀。步行1.5km。",c:0,g:"highlight"},{t:"13:30",n:"午餐：Saty村",i:"🍽️",d:"Plov/Manti蒸餃/Shashlik。",c:265,g:"food"},{t:"14:30",n:"返回阿拉木圖",i:"🚗",d:"300km 4.5-5.5hr。預計天黑前到。",c:0,g:"transport"},{t:"20:00",n:"回到阿拉木圖",i:"🏨",d:"簡單晚餐。可去中央國家博物館（開到18:00週四OK）。",c:265,g:"food"}],bg:{tk:200,tr:1165,fd:660,ht:665,ot:0},tp:["Day4+5自駕：租車TWD4500-6400+油費1000-1330","Day4+5 Tour：TWD6400全含","凱恩迪湖部分租車禁入罰USD200"]},{n:6,dt:"4/24",wd:"五",th:"Altyn-Emel Day1 唱歌沙丘",ct:"Altyn-Emel",wx:"10–25°C沙漠",ic:"🏜️",cl:"#C2612C",gr:"linear-gradient(135deg,#B85A28,#D4763F)",sp:[{t:"06:30",n:"集合出發（Onyx Tour SUV）",i:"🚙",d:"Delica越野車。自備早餐。帶2L水！車程5-6hr。",c:0,g:"transport"},{t:"12:00",n:"抵達Basshi村＋午餐",i:"🍽️",d:"國家公園入口。Beshbarmak手抓肉。入住民宿。",c:335,g:"food"},{t:"14:00",n:"🏜️ 唱歌沙丘 Singing Dune",i:"🏜️",d:"150m高巨型沙丘！乾燥時沙子滑動發出管風琴嗡嗡聲。赤腳爬上頂端俯瞰伊犁河谷！",c:0,g:"highlight"},{t:"16:00",n:"Valikhanov泉水＋Oshaktas石碑",i:"🗿",d:"沙漠神秘泉水＋古代突厥石碑。",c:0,g:"sight"},{t:"19:00",n:"Basshi民宿＋晚餐＋星空",i:"🌌",d:"家庭料理晚餐（含Tour）。零光害星空！",c:0,g:"hotel"}],bg:{tk:0,tr:0,fd:335,ht:535,ot:5335},tp:["Onyx 2日SUV團 80,000KZT/人含交通嚮導餐","赤腳爬沙丘更容易","帶2L水＋防曬＋帽子","住宿另付 Basshi民宿 ~8,000KZT/人"]},{n:7,dt:"4/25",wd:"六",th:"Altyn-Emel Day2 火星地貌 → Sandyq",ct:"Altyn-Emel→Almaty",wx:"8–22°C",ic:"🪐",cl:"#8B4513",gr:"linear-gradient(135deg,#6B3410,#A0522D)",sp:[{t:"08:00",n:"早餐（含Tour）",i:"☕",d:"民宿早餐。",c:0,g:"food"},{t:"09:00",n:"700年古柳 Ancient Willow",i:"🌳",d:"700歲巨型柳樹！比很多城市還老。遊牧民族曾在此紮營。",c:0,g:"sight"},{t:"10:00",n:"Katutau 熔岩山🌋",i:"🌋",d:"2500萬年前火山噴發遺跡！紅色凝固熔岩形成外星球般的岩柱和洞穴。",c:0,g:"sight"},{t:"11:00",n:"🪐 Aktau白山（火星地貌！）",i:"🪐",d:"⭐ 最超現實景觀！白紅橘綠層狀沉積岩＝火星表面。4000萬年古海底沉積。健行3-5km穿越彩色峽谷。",c:0,g:"highlight"},{t:"13:00",n:"野餐午餐＋返程",i:"🧺",d:"荒漠中野餐（含Tour）。然後5-6hr回阿拉木圖。",c:0,g:"food"},{t:"19:30",n:"Sandyq 哈薩克傳統餐廳🍖",i:"🍖",d:"⭐4.6 博物館餐廳！馬奶燉羊排/骨髓/Baursak。等餐有民俗導覽！",c:670,g:"food"}],bg:{tk:0,tr:200,fd:670,ht:1000,ot:5335},tp:["Aktau白山是此行最超現實景觀","帶帽子防曬無遮蔽","上午光線讓顏色更鮮豔","Sandyq是Abylai Khan Ave 55"]},{n:8,dt:"4/26",wd:"日",th:"Oi-Qaragai + Arasan SPA + MEGA",ct:"Almaty",wx:"3–16°C",ic:"🏔️",cl:"#3A8B5C",gr:"linear-gradient(135deg,#2D7A47,#48A668)",sp:[{t:"08:00",n:"出發→Oi-Qaragai",i:"🚕",d:"Yandex Go 35-45分。KZT 8,000-12,000。",c:0,g:"transport"},{t:"09:00",n:"騎馬體驗🐴",i:"🐴",d:"天山雲杉森林裡騎馬！穿過林間小徑。不需經驗。KZT 6,000-10,000/人/hr。",c:800,g:"highlight"},{t:"10:30",n:"纜車觀景＋Zip-line",i:"🚡",d:"天山全景＋中亞最長Zip-line橫跨峽谷！纜車KZT 3,000-5,000 + Zip-line 5,000-8,000/人。",c:800,g:"sight"},{t:"12:00",n:"園區午餐",i:"🍽️",d:"BBQ拼盤/Khachapuri起司餅。KZT 4,000-8,000。",c:535,g:"food"},{t:"14:00",n:"Arasan SPA♨️",i:"♨️",d:"蘇聯時代浴場！芬蘭桑拿+俄式蒸氣+Hammam。葉子拍打＋天然精油。17:00前有折扣！自備毛巾拖鞋泳帽。",c:470,g:"highlight"},{t:"16:30",n:"MEGA購物中心🛍️",i:"🛍️",d:"哈薩克最大購物中心。紀念品+最後採購。",c:0,g:"sight"},{t:"18:30",n:"回住宿打包",i:"🧳",d:"確認護照機票充電器伴手禮。",c:0,g:"hotel"}],bg:{tk:1600,tr:1600,fd:1000,ht:0,ot:0},tp:["Oi-Qaragai提前email預約騎馬","Arasan自備毛巾拖鞋泳帽水","MEGA最後採購Rakhat巧克力","回住宿打包確認護照"]},{n:9,dt:"4/27",wd:"一",th:"飛往塔什干",ct:"→Tashkent",wx:"1–12°C",ic:"✈️",cl:"#6B6560",gr:"linear-gradient(135deg,#6B6560,#8A847E)",sp:[{t:"08:00",n:"早餐退房",i:"🏨",d:"確認行李證件。",c:0,g:"hotel"},{t:"09:00",n:"自由活動",i:"🚶",d:"補逛或買伴手禮。",c:0,g:"sight"},{t:"11:00",n:"阿拉木圖機場出發",i:"✈️",d:"Yandex KZT 3,000-5,000。起飛前2.5-3hr到機場。",c:200,g:"transport"},{t:"~13:00",n:"起飛→塔什干✈️",i:"✈️",d:"Uzbekistan Airways/Air Astana/CentrumAir約1.5hr。USD 68-170/人。4/27週一三家都有直飛！",c:6100,g:"highlight"},{t:"~15:00",n:"抵達塔什干🇺🇿",i:"🇺🇿",d:"同時區。開始烏茲別克段 4/27-5/9！",c:0,g:"arrival"}],bg:{tk:0,tr:400,fd:400,ht:0,ot:7000},tp:["4/27三家航空直飛塔什干","建議Google Flights比價"]}];
-const VL=5760,VV=3840,FL=29710,TOT=90000;
+const D=[
+{n:1,dt:"4/19",wd:"日",th:"抵達＋Sky Bar",ct:"Almaty",wx:"5–15°C",ic:"✈️",cl:"#7E57A0",gr:"linear-gradient(135deg,#6B4B8A,#9168B5)",sp:[
+{t:"20:40",n:"抵達阿拉木圖機場T2",i:"✈️",d:"入境→領行李→換少量KZT（USD50-100）→下載Yandex Go",c:0,g:"arrival"},
+{t:"⟶",n:"🚕 Yandex Go→市中心",i:"🚕",d:"15-19km｜20-35分｜KZT 5,000-7,500（~TWD335-500）",c:500,g:"transport"},
+{t:"21:30",n:"入住＋Magnum超市🍎",i:"🛒",d:"24hr超市。哈薩克是蘋果原產國——買Aport蘋果嚐嚐！",c:0,g:"sight"},
+{t:"⟶",n:"🚕 Yandex Go→Ritz-Carlton",i:"🚕",d:"2-5km｜8-15分｜KZT 1,000-2,500",c:0,g:"transport"},
+{t:"22:00",n:"⭐ Ritz-Carlton Sky Bar 30F🍸",i:"🍸",d:"落地窗俯瞰阿拉木圖夜景＋天山輪廓。Cocktail KZT5,000-8,000/杯。Smart Casual。",c:1200,g:"highlight"},
+{t:"⟶",n:"🚕 Yandex Go→住宿",i:"🚕",d:"2-5km｜8-15分｜KZT 1,000-2,500",c:0,g:"transport"},
+{t:"23:30",n:"返回住宿",i:"🏨",d:"早睡！明天行程滿。",c:0,g:"hotel"}
+],bg:{tk:0,tr:800,fd:1200,ht:1000,ot:0},tp:["絕不搭機場攬客黑車","Yandex Go必裝","Magnum 24hr超市買水零食","Sky Bar每日18:30有免費茶道"]},
+
+{n:2,dt:"4/20",wd:"一",th:"高山纜車＋夜景",ct:"Almaty",wx:"4–14°C/山頂-5°C",ic:"🏔️",cl:"#3573B5",gr:"linear-gradient(135deg,#2A5F9E,#4087CC)",sp:[
+{t:"08:30",n:"出發",i:"🏨",d:"",c:0,g:"hotel"},
+{t:"⟶",n:"🚌 公車#12→梅德奧",i:"🚌",d:"14km｜25-35分｜KZT 150/人。備選：Yandex KZT 2,500-4,000",c:0,g:"transport"},
+{t:"09:15",n:"梅德奧滑冰場（外觀）",i:"⛸️",d:"世界最高露天滑冰場 海拔1,691m。整修至2027。拍拱門＋山谷。",c:0,g:"sight"},
+{t:"⟶",n:"🚡 纜車上山",i:"🚡",d:"梅德奧→Shymbulak｜纜車15分",c:0,g:"transport"},
+{t:"10:00",n:"⭐ Shymbulak纜車3段",i:"🚡",d:"3段纜車到海拔3,163m！天山雪峰全景。山頂可健行。KZT 6,500/人。山頂-10°C帶手套帽子！",c:870,g:"highlight"},
+{t:"⟶",n:"🚡🚕 纜車下山＋Yandex",i:"🚕",d:"纜車30分＋車10分→AUYL｜車KZT 1,500-2,500",c:0,g:"transport"},
+{t:"12:30",n:"⭐ AUYL午餐",i:"🍽️",d:"⭐4.7 新遊牧料理。蘇聯時期建築改造，世界最漂亮餐廳之一。碳烤骨髓/馬臉頰肉。需訂位！",c:670,g:"food"},
+{t:"⟶",n:"🚕 Yandex→第一總統公園",i:"🚕",d:"~5km｜10-15分｜KZT 1,000-2,000",c:0,g:"transport"},
+{t:"15:00",n:"⭐ 第一總統公園",i:"🌳",d:"73公頃，2001建。紀念北京奧運火炬傳遞，百株雲杉＋樺樹。日本庭園＋山景觀景台。",c:0,g:"sight"},
+{t:"⟶",n:"🚕 Yandex→Navat",i:"🚕",d:"~3km｜8-12分｜KZT 800-1,500。或步行25分",c:0,g:"transport"},
+{t:"17:30",n:"Navat晚餐🍛",i:"🍛",d:"⭐4.5 網美餐廳！中亞傳統料理，裝潢超華麗。Kuurdak/Beshbarmak/Plov。離Kok-Tobe纜車站步行5分。",c:470,g:"food"},
+{t:"⟶",n:"🚶 步行→Kok-Tobe纜車站",i:"🚶",d:"400m｜5分｜免費",c:0,g:"transport"},
+{t:"19:30",n:"⭐ Kok-Tobe纜車夜景＋滑車🌃",i:"🌃",d:"纜車上山看城市燈海＋天山剪影。披頭四雕像。滑車KZT 2,000-3,000/次！營運到22:45。",c:670,g:"highlight"},
+{t:"⟶",n:"🚡🚕 纜車下山＋Yandex",i:"🚕",d:"纜車10分＋車10-15分→住宿｜KZT 1,000-2,500",c:0,g:"transport"},
+{t:"22:00",n:"返回住宿",i:"🏨",d:"",c:0,g:"hotel"}
+],bg:{tk:1790,tr:465,fd:1460,ht:1000,ot:0},tp:["Shymbulak山頂體感-10°C帶手套","AUYL需訂位","Navat離Kok-Tobe步行5分","Kok-Tobe滑車超好玩"]},
+
+{n:3,dt:"4/21",wd:"二",th:"BAO＋市區文化＋夜發Tour",ct:"Almaty",wx:"湖區2-10°C/市區4-14°C",ic:"🏛️",cl:"#2E7D4B",gr:"linear-gradient(135deg,#256B3F,#3A9B5E)",sp:[
+{t:"07:00",n:"BAO半日團集合",i:"🚙",d:"Onyx Tour接送。KZT 10,000/人。",c:1340,g:"transport"},
+{t:"⟶",n:"🚙 Tour SUV→BAO",i:"🚙",d:"15km山路蜿蜒｜60分｜含Tour",c:0,g:"transport"},
+{t:"08:30",n:"大阿拉木圖湖 BAO🏔️",i:"🏔️",d:"海拔2,511m冰川堰塞湖！三座4000m+雪峰環繞。4月可能結冰呈灰白色。觀景台在北側堤壩。",c:0,g:"highlight"},
+{t:"⟶",n:"🚙 Tour SUV→市區",i:"🚙",d:"15km山路｜50分｜含Tour",c:0,g:"transport"},
+{t:"12:30",n:"Vanilla Brunch☕",i:"☕",d:"人氣brunch！酪梨吐司/班尼迪克蛋/鬆餅。KZT 3,000-5,000。",c:335,g:"food"},
+{t:"⟶",n:"🚕 Yandex/步行→潘菲洛夫公園",i:"🚶",d:"1-2km｜10-15分｜KZT 500或步行",c:0,g:"transport"},
+{t:"14:00",n:"⭐ 潘菲洛夫公園＋教堂＋聖火🕍",i:"🕍",d:"28勇士紀念公園。升天主教座堂全木造無釘！色彩鮮豔俄式東正教堂。永恆聖火紀念碑。",c:0,g:"sight"},
+{t:"⟶",n:"🚶 步行→博物館",i:"🚶",d:"1.5km｜18分步行",c:0,g:"transport"},
+{t:"15:00",n:"⭐ 中央國家博物館🏛️",i:"🏛️",d:"74,000m2。薩卡金人戰士Golden Man真品＋遊牧文物＋絲路歷史。KZT 2,000/人。週二OK。",c:270,g:"sight"},
+{t:"⟶",n:"🚶 步行→Green Bazaar",i:"🚶",d:"1.2km｜15分步行",c:0,g:"transport"},
+{t:"17:30",n:"⭐ Green Bazaar🥛",i:"🧺",d:"1875年至今！馬奶、駱駝奶、馬肉、堅果蜂蜜。必喝Kvas全麥蜂蜜氣泡飲！帶現金。",c:0,g:"food"},
+{t:"⟶",n:"🚶 步行→Dadiani",i:"🚶",d:"600m｜8分步行",c:0,g:"transport"},
+{t:"19:00",n:"Dadiani Georgian晚餐🥟",i:"🥟",d:"喬治亞餐！Manti餃子/Lobio堅果豆/烤肉串/丁骨牛排。KZT 5,000-8,000。",c:535,g:"food"},
+{t:"20:30",n:"回住宿拿Tour過夜包",i:"🎒",d:"大行李留住宿。帶護照正本！",c:0,g:"hotel"},
+{t:"⟶",n:"🚕 Yandex→集合點",i:"🚕",d:"Baitursynov 100｜5-10分｜KZT 500-1,000",c:0,g:"transport"},
+{t:"21:00",n:"Algri Tour集合出發🚌",i:"🚌",d:"2日Tour。25,900KZT/人。夜間出發→凌晨到Saty。車上睡！帶護照＋保暖衣物。",c:0,g:"transport"}
+],bg:{tk:270,tr:400,fd:1200,ht:1000,ot:1340},tp:["BAO 4月可能結冰但仍壯美","教堂女性帶頭巾","Green Bazaar帶現金","21:00歌劇院散場直接去集合"]},
+
+{n:4,dt:"4/22",wd:"三",th:"Algri Day1 凱恩迪＋科爾賽",ct:"Saty村",wx:"山區0–15°C",ic:"💎",cl:"#1A6B5C",gr:"linear-gradient(135deg,#12574A,#238070)",sp:[
+{t:"02:30",n:"凌晨到Saty村",i:"🌙",d:"Tour巴士5hr從阿拉木圖。入住民宿繼續睡。",c:0,g:"hotel"},
+{t:"07:30",n:"早餐（含Tour）",i:"☕",d:"Baursak＋茶＋果醬＋雞蛋",c:0,g:"food"},
+{t:"⟶",n:"🚙 Tour UAZ→凱恩迪",i:"🚙",d:"~15km極顛簸｜40分｜含Tour。4WD/UAZ接駁",c:0,g:"transport"},
+{t:"09:00",n:"⭐ 凱恩迪湖 沉沒森林🌲",i:"🌲",d:"1911地震堰塞湖！百年雲杉筆直挺立水中。哈薩克最超現實景觀。步行到湖邊~2.5km。防水鞋必備！",c:0,g:"highlight"},
+{t:"⟶",n:"🚙 Tour→Saty村",i:"🚙",d:"15km｜40分｜含Tour",c:0,g:"transport"},
+{t:"13:00",n:"Saty午餐（含Tour）",i:"🍽️",d:"家庭料理：Plov/Manti/Shashlik",c:0,g:"food"},
+{t:"⟶",n:"🚙 Tour→科爾賽湖",i:"🚙",d:"~25km｜40分｜含Tour",c:0,g:"transport"},
+{t:"15:00",n:"⭐ 科爾賽湖💎",i:"💎",d:"「北天山珍珠」海拔1,818m翡翠湖。環湖步道。騎馬KZT6,000/hr 划船KZT10,000/40min（自費）",c:0,g:"highlight"},
+{t:"⟶",n:"🚙 Tour→Saty村",i:"🚙",d:"~25km｜40分｜含Tour",c:0,g:"transport"},
+{t:"19:30",n:"Saty晚餐＋營火🔥",i:"🔥",d:"含Tour。團體遊戲＋營火。零光害銀河！",c:0,g:"food"}
+],bg:{tk:0,tr:0,fd:0,ht:0,ot:0},tp:["全日含Tour 25,900KZT/人","帶護照正本（邊境區）","凱恩迪步道泥濘防水鞋必備","Saty零光害看銀河"]},
+
+{n:5,dt:"4/23",wd:"四",th:"Algri Day2 查林峽谷→Pinta Bar",ct:"Saty→Almaty",wx:"峽谷10–18°C",ic:"🏜️",cl:"#B85A28",gr:"linear-gradient(135deg,#9E4820,#D46A35)",sp:[
+{t:"08:30",n:"早餐（含Tour）",i:"☕",d:"民宿早餐。",c:0,g:"food"},
+{t:"⟶",n:"🚌 Tour巴士→黑峽谷",i:"🚌",d:"~90分｜含Tour",c:0,g:"transport"},
+{t:"10:30",n:"黑峽谷 Black Canyon",i:"🏜️",d:"查林河最深峽谷段。黑色岩壁＋壯闊河谷。",c:0,g:"sight"},
+{t:"⟶",n:"🚌 Tour→月亮峽谷",i:"🚌",d:"~30分｜含Tour",c:0,g:"transport"},
+{t:"11:30",n:"月亮峽谷 Moon Canyon🌙",i:"🌙",d:"黃色沉積岩月球地表！光線隨時間變色。遊客稀少秘境。",c:0,g:"sight"},
+{t:"⟶",n:"🚌 Tour→查林峽谷",i:"🚌",d:"~30分｜含Tour",c:0,g:"transport"},
+{t:"12:30",n:"⭐ 查林峽谷 城堡谷🏰",i:"🏰",d:"1200萬年紅色砂岩！步行到查林河來回~5km。哈薩克版大峽谷。帶護照！",c:0,g:"highlight"},
+{t:"⟶",n:"🚌 Tour巴士→阿拉木圖",i:"🚌",d:"250km｜3.5hr｜含Tour。車上補眠",c:0,g:"transport"},
+{t:"20:00",n:"回阿拉木圖→沖澡",i:"🏨",d:"回住宿放包換衣。",c:0,g:"hotel"},
+{t:"⟶",n:"🚕 Yandex→Pinta Bar",i:"🚕",d:"1-3km｜5-10分｜KZT 500-1,000",c:0,g:"transport"},
+{t:"21:00",n:"🍻 Pinta Bar & Grill",i:"🍻",d:"精釀啤酒＋Live Band現場！2天Tour後最好的放鬆。音樂21:00-23:00。",c:800,g:"food"}
+],bg:{tk:0,tr:200,fd:800,ht:1000,ot:3470},tp:["Tour費25,900×2人含D4+D5全部","查林峽谷帶護照","下到河邊拍照最壯觀","Pinta Bar Live Band"]},
+
+{n:6,dt:"4/24",wd:"五",th:"Altyn-Emel Day1 唱歌沙丘",ct:"Almaty→Altyn-Emel",wx:"沙漠10–25°C",ic:"🏜️",cl:"#C2612C",gr:"linear-gradient(135deg,#B85A28,#D4763F)",sp:[
+{t:"06:30",n:"集合出發",i:"🚙",d:"Onyx Tour Delica SUV。自備早餐。帶2L水！",c:0,g:"transport"},
+{t:"⟶",n:"🚙 Onyx SUV→Basshi村",i:"🚙",d:"250-290km｜5-6hr｜含Tour。途經Kapchagai水庫",c:0,g:"transport"},
+{t:"12:00",n:"Basshi村＋入住＋午餐",i:"🍽️",d:"國家公園入口。Beshbarmak手抓肉~KZT2,500。入住民宿。",c:335,g:"food"},
+{t:"⟶",n:"🚙 Tour SUV→唱歌沙丘",i:"🚙",d:"40km土路｜40-50分｜含Tour。可能看到野驢＋鵝喉羚",c:0,g:"transport"},
+{t:"14:00",n:"⭐🏜️ 唱歌沙丘 Singing Dune",i:"🏜️",d:"150m高巨型沙丘！沙子滑動發出管風琴嗡嗡聲。赤腳爬上俯瞰伊犁河谷！30-40分爬上去。",c:0,g:"highlight"},
+{t:"16:00",n:"Valikhanov泉水＋Oshaktas石碑",i:"🗿",d:"沙漠神秘泉水＋古代突厥三石碑。",c:0,g:"sight"},
+{t:"⟶",n:"🚙 Tour SUV→Basshi村",i:"🚙",d:"~40km｜40分｜含Tour",c:0,g:"transport"},
+{t:"19:00",n:"Basshi民宿＋晚餐＋星空🌌",i:"🌌",d:"家庭料理（含Tour）。零光害星空！夜間5-10°C帶外套。",c:0,g:"hotel"}
+],bg:{tk:0,tr:0,fd:335,ht:535,ot:5335},tp:["Onyx 2日SUV團80,000KZT/人","赤腳爬沙丘更容易","帶2L水＋防曬＋帽子","住宿另付~8,000KZT/人"]},
+
+{n:7,dt:"4/25",wd:"六",th:"Altyn-Emel Day2 火星地貌→Sandyq",ct:"Altyn-Emel→Almaty",wx:"沙漠8–22°C",ic:"🪐",cl:"#8B4513",gr:"linear-gradient(135deg,#6B3410,#A0522D)",sp:[
+{t:"08:00",n:"早餐（含Tour）",i:"☕",d:"民宿早餐。",c:0,g:"food"},
+{t:"⟶",n:"🚙 Tour SUV→700年古柳",i:"🚙",d:"~20km｜30分｜含Tour",c:0,g:"transport"},
+{t:"09:00",n:"700年古柳🌳",i:"🌳",d:"700歲巨型柳樹！比很多城市還老。遊牧民族紮營地。",c:0,g:"sight"},
+{t:"⟶",n:"🚙 Tour→Katutau山",i:"🚙",d:"~30km｜30分｜含Tour",c:0,g:"transport"},
+{t:"10:00",n:"Katutau 熔岩山🌋",i:"🌋",d:"2500萬年前火山遺跡！紅色凝固熔岩形成外星岩柱洞穴。",c:0,g:"sight"},
+{t:"⟶",n:"🚙 Tour→Aktau白山",i:"🚙",d:"~15km｜20分｜含Tour",c:0,g:"transport"},
+{t:"11:00",n:"⭐🪐 Aktau白山（火星地貌！）",i:"🪐",d:"最超現實景觀！白紅橘綠層狀岩＝火星表面。4000萬年古海底沉積。健行3-5km穿越彩色峽谷。帶帽防曬。",c:0,g:"highlight"},
+{t:"13:00",n:"野餐午餐（含Tour）",i:"🧺",d:"荒漠中野餐——獨特體驗！",c:0,g:"food"},
+{t:"⟶",n:"🚙 Tour SUV→阿拉木圖",i:"🚙",d:"280km｜5-6hr｜含Tour。車上補眠",c:0,g:"transport"},
+{t:"17:00-19:00",n:"回阿拉木圖→沖澡",i:"🏨",d:"回住宿整理。",c:0,g:"hotel"},
+{t:"⟶",n:"🚕 Yandex→Sandyq",i:"🚕",d:"1-3km｜5-10分｜KZT 500-1,000",c:0,g:"transport"},
+{t:"19:30",n:"⭐ Sandyq晚餐🍖",i:"🍖",d:"⭐4.6 哈薩克傳統博物館餐廳！馬奶燉羊排/骨髓/Baursak。等餐有民俗導覽！Abylai Khan Ave 55",c:670,g:"food"}
+],bg:{tk:0,tr:200,fd:670,ht:1000,ot:5335},tp:["Aktau白山是最超現實景觀","上午光線顏色最鮮豔","帶帽子防曬無遮蔽","Sandyq在Abylai Khan Ave 55"]},
+
+{n:8,dt:"4/26",wd:"日",th:"Oi-Qaragai＋Arasan SPA＋MEGA",ct:"Almaty",wx:"山區3-14°C/市區5-16°C",ic:"🏔️",cl:"#3A8B5C",gr:"linear-gradient(135deg,#2D7A47,#48A668)",sp:[
+{t:"08:00",n:"出發",i:"🏨",d:"",c:0,g:"hotel"},
+{t:"⟶",n:"🚕 Yandex→Oi-Qaragai",i:"🚕",d:"30-40km｜35-45分｜KZT 8,000-12,000",c:0,g:"transport"},
+{t:"09:00",n:"⭐ 騎馬體驗🐴",i:"🐴",d:"天山雲杉森林騎馬！林間小徑＋蘋果園。KZT 6,000-10,000/人/hr。提前email預約！",c:800,g:"highlight"},
+{t:"10:30",n:"纜車觀景＋Zip-line🚡",i:"🚡",d:"纜車到山頂天山全景。中亞最長Zip-line橫跨峽谷！纜車KZT3,000-5,000 + Zip-line5,000-8,000/人",c:800,g:"sight"},
+{t:"12:00",n:"園區午餐",i:"🍽️",d:"Aport-Alatau Pub/義式/喬治亞三選一。BBQ/Khachapuri/Pizza。KZT 4,000-8,000。",c:535,g:"food"},
+{t:"⟶",n:"🚕 Yandex→市中心",i:"🚕",d:"30-40km｜35-45分｜KZT 8,000-12,000",c:0,g:"transport"},
+{t:"14:00",n:"⭐ Arasan SPA♨️",i:"♨️",d:"蘇聯浴場！芬蘭桑拿＋俄式蒸氣＋Hammam＋泳池。葉子拍打＋天然精油。17:00前折扣！自備毛巾拖鞋泳帽。",c:470,g:"highlight"},
+{t:"⟶",n:"🚕 Yandex→MEGA",i:"🚕",d:"~10km｜20分｜KZT 2,000-3,000",c:0,g:"transport"},
+{t:"16:30",n:"MEGA購物中心🛍️",i:"🛍️",d:"哈薩克最大購物中心。Rakhat巧克力＋紀念品＋超市。最後採購！",c:0,g:"sight"},
+{t:"⟶",n:"🚕 Yandex→住宿",i:"🚕",d:"5-10km｜15分｜KZT 1,000-2,000",c:0,g:"transport"},
+{t:"18:30",n:"回住宿打包",i:"🧳",d:"確認護照機票充電器伴手禮。",c:0,g:"hotel"}
+],bg:{tk:1600,tr:1600,fd:1000,ht:0,ot:0},tp:["Oi-Qaragai提前email預約騎馬","Arasan自備毛巾拖鞋泳帽水","MEGA買Rakhat巧克力","確認護照打包"]},
+
+{n:9,dt:"4/27",wd:"一",th:"飛往塔什干",ct:"Almaty→Tashkent",wx:"5–14°C",ic:"✈️",cl:"#7E57A0",gr:"linear-gradient(135deg,#6B4B8A,#9168B5)",sp:[
+{t:"08:00",n:"早餐＋退房",i:"☕",d:"最後確認行李。",c:0,g:"food"},
+{t:"09:00",n:"自由活動",i:"☕",d:"最後散步或喝杯咖啡。",c:0,g:"sight"},
+{t:"⟶",n:"🚕 Yandex→機場ALA",i:"🚕",d:"15-19km｜25-40分｜KZT 3,000-5,000",c:335,g:"transport"},
+{t:"~13:00",n:"直飛塔什干TAS✈️",i:"✈️",d:"飛行1.5hr。烏茲別克免簽30天。USD 68-170/人。",c:7000,g:"transport"},
+{t:"~14:30",n:"抵達塔什干！🇺🇿",i:"🇺🇿",d:"開始烏茲別克12天 4/27-5/9！",c:0,g:"arrival"}
+],bg:{tk:0,tr:400,fd:400,ht:0,ot:7000},tp:["提前Google Flights買機票","Uzbekistan Airways通常最便宜","提前3hr到機場","行李23kg×1件/人"]}
+];
+const TOT=90000,FL=29710,VL=5760,VV=3840;
 const tC={highlight:"#C2612C",food:"#9E3A3A",transport:"#3573B5",sight:"#7E57A0",hotel:"#3A8B5C",arrival:"#3A8B5C"};
 const tL={highlight:"精華",food:"餐飲",transport:"交通",sight:"景點",hotel:"住宿",arrival:"抵達"};
 const dT=b=>b.tk+b.tr+b.fd+b.ht+b.ot;
@@ -87,85 +209,4 @@ document.addEventListener("touchend",e=>{if(cT!=="trip")return;const dx=e.change
 R();
 </script>
 </body>
-</html>const days=[
-{n:1,dt:"4/19",wd:"日",th:"抵達＋Sky Bar",ct:"Almaty",wx:"5–15°C",ic:"✈️",cl:"#7E57A0",gr:"linear-gradient(135deg,#6B4B8A,#9168B5)",sp:[
-{t:"20:40",n:"抵達阿拉木圖國際機場T2",i:"✈️",d:"入境→領行李→換少量KZT。下載Yandex Go。",c:0,g:"transport"},
-{t:"21:30",n:"入住＋Magnum超市🍎",i:"🏨",d:"24hr超市買水、早餐、零食。買Aport蘋果——蘋果原產國！",c:0,g:"hotel"},
-{t:"22:00",n:"⭐ Ritz-Carlton Sky Bar 30F",i:"🍸",d:"落地窗俯瞰阿拉木圖夜景＋天山輪廓。Cocktail KZT 5,000-8,000/杯。Smart Casual。",c:600,g:"highlight"}
-],bg:{tk:0,tr:800,fd:1200,ht:1000,ot:0},tp:["Yandex Go叫車不搭黑車","機場換少量KZT即可"]},
-
-{n:2,dt:"4/20",wd:"一",th:"高山纜車＋夜景",ct:"Almaty",wx:"4–14°C/山頂-5°C",ic:"🏔️",cl:"#3573B5",gr:"linear-gradient(135deg,#2A5F9E,#4087CC)",sp:[
-{t:"09:15",n:"梅德奧滑冰場（外觀）",i:"⛸️",d:"世界最高露天滑冰場 海拔1,691m。整修至2027。拍拱門＋山谷。",c:0,g:"sight"},
-{t:"10:00",n:"⭐ Shymbulak纜車3段",i:"🚡",d:"3段纜車到海拔3,163m！天山雪峰全景。山頂可短程健行。KZT 6,500/人。",c:870,g:"highlight"},
-{t:"12:30",n:"⭐ AUYL午餐",i:"🍽️",d:"新遊牧料理。蘇聯時期建築改造，世界50大新發現餐廳。碳烤骨髓/馬臉頰肉。需訂位！",c:670,g:"food"},
-{t:"15:00",n:"⭐ 第一總統公園",i:"🌳",d:"73公頃，紀念北京奧運火炬傳遞。百株雲杉＋日本庭園＋山景觀景台。",c:0,g:"sight"},
-{t:"17:30",n:"Navat晚餐",i:"🍽️",d:"中亞傳統料理網美餐廳。Beshbarmak/Plov。離Kok-Tobe纜車站步行5分鐘。",c:470,g:"food"},
-{t:"19:30",n:"⭐ Kok-Tobe纜車夜景＋滑車🛝",i:"🌃",d:"纜車上山俯瞰城市燈海＋天山剪影。滑車alpine coaster超刺激！營運到22:45。",c:600,g:"highlight"}
-],bg:{tk:1790,tr:465,fd:1460,ht:1000,ot:0},tp:["山頂體感-10°C，帶手套圍巾帽子","AUYL需提前訂位","Kok-Tobe滑車另付KZT 2,000-3,000/次"]},
-
-{n:3,dt:"4/21",wd:"二",th:"BAO＋市區文化＋夜發Tour",ct:"Almaty",wx:"湖區2–10°C/市區4–14°C",ic:"🏛️",cl:"#B8860B",gr:"linear-gradient(135deg,#A07725,#C99830)",sp:[
-{t:"07:00",n:"⭐ 大阿拉木圖湖半日團",i:"🏔️",d:"Onyx Tour SUV。海拔2,511m冰川堰塞湖，三座4000m雪峰環繞。4月可能結冰——雪白山谷另一種壯美。",c:670,g:"highlight"},
-{t:"12:30",n:"Vanilla Brunch☕",i:"☕",d:"阿拉木圖人氣brunch店。酪梨吐司/班尼迪克蛋/鬆餅/咖啡。",c:335,g:"food"},
-{t:"14:00",n:"⭐ 潘菲洛夫公園＋升天教堂＋永恆聖火",i:"⛪",d:"28勇士紀念公園。教堂全木造無釘子！色彩鮮豔俄式東正教堂。永恆聖火。",c:0,g:"sight"},
-{t:"15:00",n:"⭐ 中央國家博物館",i:"🏛️",d:"薩卡金人戰士（Golden Man）真品＋遊牧民族文物＋絲路歷史。金廳極壯觀。KZT 2,000/人。",c:270,g:"sight"},
-{t:"17:30",n:"⭐ Green Bazaar",i:"🛒",d:"1875年至今！馬奶、駱駝奶、馬肉、堅果。必喝Kvas全麥蜂蜜氣泡飲！帶現金。",c:0,g:"highlight"},
-{t:"19:00",n:"Dadiani Georgian晚餐🇬🇪",i:"🍽️",d:"喬治亞料理。Manti餃子/Lobio堅果豆/烤肉串/丁骨牛排。",c:535,g:"food"},
-{t:"21:00",n:"Algri Tour集合出發→夜車🚌",i:"🚌",d:"Baitursynov 100集合。夜間出發→凌晨到Saty。車上睡覺！帶護照＋保暖衣物。",c:0,g:"transport"}
-],bg:{tk:270,tr:400,fd:1200,ht:1000,ot:1340},tp:["BAO湖區風大帶帽子","Green Bazaar帶現金","20:30回住宿拿Tour過夜包"]},
-
-{n:4,dt:"4/22",wd:"三",th:"凱恩迪＋科爾賽湖",ct:"Saty→湖區",wx:"0–15°C山區",ic:"💎",cl:"#0E7C6B",gr:"linear-gradient(135deg,#096B5B,#12917E)",sp:[
-{t:"02:30",n:"凌晨抵達Saty村",i:"🏠",d:"Tour巴士5小時。入住民宿，繼續睡。",c:0,g:"hotel"},
-{t:"07:30",n:"民宿早餐",i:"🍽️",d:"Baursak＋茶＋果醬＋雞蛋。",c:0,g:"food"},
-{t:"09:00",n:"⭐ 凱恩迪沉沒森林",i:"🌲",d:"1911地震堰塞湖。百年雲杉筆直挺立水中！步行到湖邊約2.5km。",c:0,g:"highlight"},
-{t:"13:30",n:"Saty午餐",i:"🍽️",d:"家庭料理：Plov/Manti/Shashlik",c:0,g:"food"},
-{t:"15:00",n:"⭐ 科爾賽湖",i:"💎",d:"「北天山珍珠」海拔1,818m翡翠色高山湖。環湖步道。4月可能部分結冰。",c:0,g:"highlight"},
-{t:"19:30",n:"Saty晚餐",i:"🍽️",d:"民宿晚餐。",c:0,g:"food"},
-{t:"21:30",n:"營火晚會＋星空🌌",i:"🔥",d:"無光害銀河肉眼可見。帶厚外套出來看。",c:0,g:"highlight"}
-],bg:{tk:0,tr:0,fd:0,ht:0,ot:0},tp:["全日含Tour 25,900KZT/人","凱恩迪步道泥濘需防水鞋","騎馬KZT 6,000/hr 划船KZT 10,000自費"]},
-
-{n:5,dt:"4/23",wd:"四",th:"黑＋月亮＋查林峽谷",ct:"峽谷→Almaty",wx:"10–18°C風大",ic:"🏜️",cl:"#C0392B",gr:"linear-gradient(135deg,#A83229,#D44B42)",sp:[
-{t:"08:30",n:"民宿早餐＋出發",i:"🍽️",d:"",c:0,g:"food"},
-{t:"10:30",n:"黑峽谷 Black Canyon",i:"🏜️",d:"查林河最深峽谷段。黑色岩壁＋壯闊河谷。",c:0,g:"sight"},
-{t:"11:30",n:"月亮峽谷 Moon Canyon",i:"🌙",d:"黃色沉積岩月球地表！遊客稀少秘境。",c:0,g:"sight"},
-{t:"12:30",n:"⭐ 查林峽谷城堡谷",i:"🏰",d:"1200萬年紅色砂岩！步行到查林河來回5km。哈薩克版大峽谷。",c:0,g:"highlight"},
-{t:"16:30",n:"返程→阿拉木圖",i:"🚌",d:"3.5小時車程。車上補眠。",c:0,g:"transport"},
-{t:"21:00",n:"🍻 Pinta Bar & Grill",i:"🎵",d:"精釀啤酒＋Live Band！2天Tour後最好的放鬆。音樂21:00-23:00。",c:400,g:"highlight"}
-],bg:{tk:0,tr:200,fd:800,ht:1000,ot:3470},tp:["Tour全部費用25,900×2人=TWD 3,470","帶護照正本（邊境區）","查林峽谷帶帽子防曬"]},
-
-{n:6,dt:"4/24",wd:"五",th:"Altyn-Emel唱歌沙丘",ct:"Altyn-Emel",wx:"10–25°C沙漠",ic:"🏜️",cl:"#C2612C",gr:"linear-gradient(135deg,#B85A28,#D4763F)",sp:[
-{t:"06:30",n:"集合出發（Onyx Tour）",i:"🚌",d:"集合點：地鐵Sayran站。車程5-6小時→沙漠。帶2L水＋零食！",c:0,g:"transport"},
-{t:"11:30",n:"Basshi村＋午餐",i:"🍽️",d:"國家公園入口。Beshbarmak手抓肉KZT 2,500/人。",c:335,g:"food"},
-{t:"14:00",n:"⭐ 唱歌沙丘 Singing Dune🏜️",i:"🏜️",d:"150m高巨型沙丘（50層樓）！赤腳爬上頂端俯瞰伊犁河谷——管風琴般嗡嗡聲。",c:0,g:"highlight"},
-{t:"16:00",n:"Valikhanov泉水＋Oshaktas石碑",i:"🗿",d:"沙漠神秘泉水＋古代突厥石碑。",c:0,g:"sight"},
-{t:"21:00",n:"回到阿拉木圖",i:"🏨",d:"5小時回市區。車上補眠。明天去Oi-Qaragai！",c:0,g:"hotel"}
-],bg:{tk:200,tr:0,fd:600,ht:1000,ot:1335},tp:["Onyx Tour 20,000KZT/人","赤腳爬沙丘更容易","帶2L水＋防曬＋帽子"]},
-
-{n:7,dt:"4/25",wd:"六",th:"Oi-Qaragai天山樹屋",ct:"Oi-Qaragai",wx:"3–14°C森林",ic:"🌲",cl:"#2E7D4B",gr:"linear-gradient(135deg,#246B3D,#389E5A)",sp:[
-{t:"09:30",n:"抵達Oi-Qaragai Check-in",i:"🏡",d:"森林獨棟木造樹屋，山景陽台，有暖氣。Booking.com預訂。",c:2600,g:"hotel"},
-{t:"10:30",n:"騎馬體驗🐴",i:"🐴",d:"天山雲杉森林裡騎馬！穿長褲包腳鞋。提前email預約。KZT 6,000-10,000/人/hr。",c:670,g:"highlight"},
-{t:"12:00",n:"繩索公園/森林步道",i:"🧗",d:"Rope Park高空挑戰或園區步道健行。",c:200,g:"sight"},
-{t:"13:30",n:"園區餐廳午餐",i:"🍽️",d:"Mountain Pub/義式/喬治亞三選一。",c:535,g:"food"},
-{t:"15:00",n:"纜車觀景＋Zip-line🪂",i:"🚡",d:"搭纜車到山頂天山全景。Zip-line橫跨峽谷——中亞最長之一！",c:600,g:"highlight"},
-{t:"18:00",n:"Umay Ethno-Spa蒙古包SPA♨️",i:"♨️",d:"蒙古包裡按摩+水療。芬蘭桑拿+熱水池。務必提前預約！",c:800,g:"highlight"},
-{t:"19:30",n:"園區喬治亞餐廳晚餐",i:"🍽️",d:"Khinkali肉餃/Lobio紅豆鍋/紅酒",c:535,g:"food"},
-{t:"21:00",n:"樹屋星空✨",i:"✨",d:"山區無光害。陽台看星空。",c:0,g:"highlight"}
-],bg:{tk:2000,tr:800,fd:1200,ht:2600,ot:1000},tp:["Tree House提前Booking.com預訂","騎馬+SPA提前email預約","大行李寄放阿拉木圖住宿"]},
-
-{n:8,dt:"4/26",wd:"日",th:"SPA＋購物＋收尾",ct:"Almaty",wx:"5–16°C",ic:"🛍️",cl:"#9E3A3A",gr:"linear-gradient(135deg,#8B3232,#B54848)",sp:[
-{t:"08:00",n:"Tree House早餐自助",i:"🍽️",d:"含住宿。晨霧雲杉森林。",c:0,g:"food"},
-{t:"09:30",n:"上午自由活動",i:"🚶",d:"再走步道或純發呆享受最後的山區時光。",c:0,g:"sight"},
-{t:"11:00",n:"退房→回阿拉木圖",i:"🚗",d:"Yandex Go 35-45分回市區。",c:800,g:"transport"},
-{t:"12:30",n:"Sandyq午餐",i:"🍽️",d:"傳統料理兼博物館。馬奶燉羊排/骨髓/Baursak。等餐有民俗導覽！",c:470,g:"food"},
-{t:"14:00",n:"⭐ Arasan Wellness & SPA♨️",i:"♨️",d:"蘇聯公共浴場。芬蘭桑拿+俄式蒸氣浴+Hammam。葉子拍打身體。平日17:00前有折扣！自備毛巾拖鞋泳帽水。",c:400,g:"highlight"},
-{t:"16:30",n:"MEGA購物中心🛍️",i:"🛍️",d:"哈薩克最大購物中心之一。最後採購。",c:0,g:"sight"},
-{t:"19:30",n:"晚餐＋打包",i:"🍽️",d:"住宿附近簡餐。確認護照機票行李。",c:200,g:"food"}
-],bg:{tk:530,tr:1600,fd:1200,ht:0,ot:0},tp:["Arasan平日17:00前進場有折扣","自備毛巾拖鞋泳帽水","MEGA最後採購機會"]},
-
-{n:9,dt:"4/27",wd:"一",th:"飛往塔什干",ct:"Almaty→Tashkent",wx:"5–14°C",ic:"✈️",cl:"#555",gr:"linear-gradient(135deg,#444,#666)",sp:[
-{t:"08:00",n:"早餐＋退房",i:"🍽️",d:"最後確認行李。",c:0,g:"food"},
-{t:"09:00",n:"自由活動",i:"🚶",d:"最後散步或喝杯咖啡。",c:0,g:"sight"},
-{t:"~11:00",n:"前往機場ALA",i:"🚗",d:"Yandex Go KZT 3,000-5,000。",c:335,g:"transport"},
-{t:"~13:00",n:"直飛塔什干TAS✈️",i:"✈️",d:"飛行1.5hr。烏茲別克免簽30天。",c:7000,g:"transport"},
-{t:"~14:30",n:"抵達塔什干！🇺🇿",i:"🎉",d:"開始烏茲別克段 4/27-5/9！",c:0,g:"highlight"}
-],bg:{tk:0,tr:400,fd:400,ht:0,ot:7000},tp:["提前Google Flights買阿拉木圖→塔什干機票","Uzbekistan Airways通常最便宜"]}
-]
+</html>
